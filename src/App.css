@@ -1,0 +1,67 @@
+
+.ant-upload .ant-upload-select-picture-card {
+  width: 180px;
+  height: 70px;
+}
+
+.invoiceForm > .row > .col{
+  padding-left: 0
+}
+
+.footerRow{
+  margin-top: 40px;
+  height: 50px;
+  background-color: #57606f
+}
+
+
+.ant-upload.ant-upload-select-picture-card{
+  width: 180px;
+  height: 80px;
+}
+
+
+
+.k-pdf-export button {
+  margin: 0;
+  visibility: hidden;
+}
+
+.k-pdf-export i {
+  visibility: hidden;
+}
+
+.k-pdf-export input{
+  border: none
+}
+
+.k-pdf-export textarea{
+  border: none;
+  margin-bottom: 0  
+}
+
+.k-pdf-export span{
+  border: none
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+  background-color: #03a678;
+  border-color: #03a678
+}
+
+.btn-primary:focus{
+  box-shadow: none
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+  background-color: #03a678;
+  border-color: #03a678
+}
+
+.ant-btn-primary, .ant-btn-primary:hover, .ant-btn-primary:active, .ant-btn-primary:visited, .ant-btn-primary:focus{
+  background-color: #03a678;
+  border-color: #03a678
+}
+
+
+
