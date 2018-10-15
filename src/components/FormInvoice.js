@@ -51,7 +51,12 @@ DSB USD: 00.11.234
 DSB EURO: 00.11.234
 `
    const placeholderVoorwaarden = `Wij verzoeken u vriendelijk het verschuldigde bedrag uiterlijk op de vervaldatum over te maken ondervermelding van het factuurnummer.`
-    
+   
+   const voorwaarden = this.props.voorwaarden ?  <div className="col">
+   <p className="mb-1">Betaalvoorwaarden</p>
+   <TextArea rows={4} disabled={!this.props.voorwaarden} placeholder={placeholderVoorwaarden}/>
+  </div> : null
+
     return(
       <div className="invoiceForm" id="invoice">
         <div className="row ml-1">
@@ -60,9 +65,9 @@ DSB EURO: 00.11.234
           <ImageUpload />
           </div>
         </div>  
-        <div className="row mt-5 ml-1"> {/* dates row */}       
+        <div className="row mt-3 ml-1"> {/* dates row */}       
 
-          <div className="col">
+          <div className="col-md-4" style={{paddingLeft: 0}}>
           <div>
            <span className="align-text-bottom"> Factuurdatum: </span><DatePicker  style={{paddingLeft: '1px', width: '120px'}} onChange={(date, dateString)=>this.props.setDateFact(date, dateString)} format='DD MMM YY'
             placeholder=" "
@@ -71,7 +76,7 @@ DSB EURO: 00.11.234
           </div>
           </div>
 
-          <div className="col">
+          <div className="col-md-4" style={{paddingLeft: 0}}>
           <div>
            <span className="align-text-bottom"> Vervaldatum:</span> <DatePicker  style={{paddingLeft: '1px', width: '120px'}} onChange={(date, dateString)=>this.props.setDateVerv(date, dateString)} format='DD MMM YY'
             placeholder=" "  
@@ -80,7 +85,7 @@ DSB EURO: 00.11.234
           </div>
           </div>
 
-          <div className="col">
+          <div className="col-md-4" style={{paddingLeft: 0}}>
             <div>
             <span className="align-text-bottom">Factuur#:</span> <Input 
             name="factuurNummer"
@@ -95,7 +100,7 @@ DSB EURO: 00.11.234
 
         <div className="row mt-4 ml-1"> {/* information row */}   
          <div className="col">
-          <p className="mb-1">Afzender</p>
+          <p className="mb-1">Afzender:</p>
           <TextArea rows={4} className="mb-4" 
             placeholder={placeholderAfzender}
             
@@ -103,7 +108,7 @@ DSB EURO: 00.11.234
          </div>
         
          <div className="col offset-1">
-          <p className="mb-1">Aan</p>
+          <p className="mb-1">Aan:</p>
           <TextArea rows={4} className="mb-4" placeholder={placeholderOntvanger}/>
          </div>
 
@@ -157,21 +162,18 @@ DSB EURO: 00.11.234
             </div>
         </div>
 
-        <div className="row mt-5 ml-1"> {/* information row */}   
-         <div className="col">
+        <div className="row mt-5 ml-1 mb-4"> {/* information row */}   
+         <div className="col-md-6">
           <p className="mb-1">Betaalgegevens</p>
           <TextArea rows={4} placeholder={placeholderBetaal}/>
          </div>
         
-         <div className="col offset-1 mb-4">
-          <p className="mb-1">Betaalvoorwaarden</p>
-          <TextArea rows={4} disabled={!this.props.voorwaarden} placeholder={placeholderVoorwaarden}/>
-         </div>
+        {voorwaarden}
 
         </div> {/* end information row */}      
         <div className="row mt-1 ml-1">
           <div className="col">
-            <p className="text-center align-middle pt-2 pb-2 pr-3" style={{color: 'white', backgroundColor: "#57606f"}}>Invoice gemaakt door Kudi</p>
+            <p className="text-center align-middle pt-2 pb-2 pr-3" style={{color: 'white', backgroundColor: "#57606f"}}>Invoice gemaakt met Kudi - www.kudiapp.com</p>
           </div>
         </div>
       </div>

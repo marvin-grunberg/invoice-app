@@ -19,7 +19,7 @@ class FormSettings extends Component{
         </div>
           <div className="row pl-4">
           <div className="col-10">
-          <Input name="korting" onChange={(e)=> this.props.handleChange(e)}/>
+          <Input name="korting" onChange={(e)=> this.props.handleChange(e)} placeholder="Kortingspercentage"/>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ class FormSettings extends Component{
         </div>
           <div className="row pl-4">
           <div className="col-10">
-          <Input name="belasting" onChange={(e)=> this.props.handleChange(e)}/>
+          <Input name="belasting" onChange={(e)=> this.props.handleChange(e)} placeholder="Belastingpercentage"/>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ class FormSettings extends Component{
         <div className="row mt-5">       
           <div className="col ml-5">
           <span>
-            <Button type="primary" style={{height: 50}} size='large' onClick={this.props.genPDF}> <i className="fa fa-download" aria-hidden="true"></i> Download</Button>
+            <Button type="primary" style={{height: 50}} size='large' onClick={this.props.genPDF}> <i className="fa fa-download" aria-hidden="true"></i> Download .pdf</Button>
           </span>
           </div>
          

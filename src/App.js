@@ -7,7 +7,7 @@ import { Layout, Modal } from 'antd';
 import FormSettings from './components/FormSettings';
 import FormInvoice from './components/FormInvoice';
 
-const { Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 class App extends Component {
   
