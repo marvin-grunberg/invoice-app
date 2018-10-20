@@ -90,8 +90,7 @@ class EditableCell extends React.Component {
                   </FormItem>
                 ) : (
                   <div
-                    className="editable-cell-value-wrap"
-                  
+                    className="editable-cell-value-wrap"                  
                     onClick={this.toggleEdit}
                   >
                     {restProps.children}
@@ -116,10 +115,8 @@ class EditableTable extends React.Component {
       render: (text, record) => {
         return (
           this.state.dataSource.length >= 1
-            ? (
-              
-                <i onClick={()=>this.handleDelete(record.key)} className="fa fa-minus-circle" aria-hidden="true" style={{cursor: 'pointer'}}></i>
-             
+            ? (              
+                <i onClick={()=>this.handleDelete(record.key)} className="fa fa-minus-circle" aria-hidden="true" style={{cursor: 'pointer'}}></i>             
             ) : null
         );
       },
@@ -135,7 +132,7 @@ class EditableTable extends React.Component {
       editable: true,
       className: 'text-right'
     }, {
-      title: 'Prijs p/e',
+      title: 'Prijs',
       dataIndex: 'prijs',
       width: '14%',
       editable: true,
@@ -144,7 +141,7 @@ class EditableTable extends React.Component {
       title: 'Bedrag',
       dataIndex: 'bedrag',
       width: '13%',
-      editable: true,
+      editable: false,
       className: 'text-right'
     }];
 

@@ -3,7 +3,8 @@ import 'antd/dist/antd.css';
 import './App.css';
 import moment from 'moment/min/moment-with-locales.min'
 import { PDFExport } from '@progress/kendo-react-pdf';
-import { Layout, Modal } from 'antd';
+import { Layout, Modal, Icon } from 'antd';
+import { FacebookProvider, Like } from 'react-facebook';
 import FormSettings from './components/FormSettings';
 import FormInvoice from './components/FormInvoice';
 
@@ -31,12 +32,14 @@ class App extends Component {
     })
   }
 
-  printDocument = async () => { 
+  printDocument = async () => {    
+    const fbLike= <div className="fb-like" data-href="https://www.facebook.com/Kudi-460370791152066/?view_public_for=460370791152066" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
       await this.invoice.save();
       Modal.success({
-        title: 'Succes!',
-        content: 'Uw invoice wordt nu gedownload'
+        title: 'Succes!',      
+        content: (`${fbLike} Uw invoice wordt nu gedownload`)
       });
+      // this.toggleModal()
   }
 
   handleChange = (e) =>{
@@ -70,34 +73,19 @@ class App extends Component {
 
   }
 
-  subTotal=(sub)=>{
-    console.log("from app: ", sub)
-  }
 
   
   render() {  
+        
+    
     return (
       <Layout >
-        <Modal
-        centered
-        visible={this.state.visible}
-        >
-
-        </Modal>
-          
+   
       <Content  style={{ padding: '0 50px' }}>
      
-      <Layout className="shadow-lg rounded" style={{ paddingTop: '24px', background: '#fff' }}>
-        <Sider width={240} style={{background: "#fff"}}>
-          <FormSettings 
-          handleChange={this.handleChange}
-          toggleSwitch={this.toggleSwitch}
-          setValuta={this.setValuta}
-          genPDF={this.printDocument}
-          />
-        </Sider>
-        <Content style={{ padding: '0 24px', minHeight: 280 }} id="docu">
-      
+     <div className="row mb-3">
+     <div className="col-md-9 shadow rounded" style={{background: "#fff"}}>
+       <Content style={{ padding: '0 24px', minHeight: 280 }} id="docu">        
         <PDFExport 
           paperSize='A4'
           fileName="kudi-invoice.pdf"
@@ -106,8 +94,7 @@ class App extends Component {
           margin= "1cm"
           scale={0.8}
           ref={(r) => this.invoice = r}
-        >
-          
+        >          
           <FormInvoice 
           handleChange={this.handleChange}
           setDateFact={this.setDateFact}        
@@ -117,12 +104,23 @@ class App extends Component {
           voorwaarden={this.state.voorwaarden}
           valuta={this.state.valuta}
           subTotal={this.subTotal}
-          />
-        
+          />        
         </PDFExport>
-
         </Content>
-      </Layout>
+       </div>
+       <div className="col-md-3">
+       <Sider width={240} style={{background: "#F0F2F5"}}>
+          <FormSettings 
+          handleChange={this.handleChange}
+          toggleSwitch={this.toggleSwitch}
+          setValuta={this.setValuta}
+          genPDF={this.printDocument}
+          />
+        </Sider>
+       </div>
+     </div>
+
+  
       
     </Content>
    

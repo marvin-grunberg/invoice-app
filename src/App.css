@@ -63,6 +63,40 @@
   border-color: #03a678
 }
 
+.ant-switch-checked{
+  background-color: #03a678;
+}
+
+.ant-upload.ant-upload-select-picture-card{
+  background-color: white;
+}
+
+.k-pdf-export .ant-upload.ant-upload-select-picture-card{
+  border: none
+}
+
+.ant-select-selection:hover{
+  border-color: #03a678
+}
+
+.ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active{
+  border-color: #03a678;
+  box-shadow: 0 0 0 2px rgba(3, 166, 120, 0.2)
+}
+
+
+.ant-input:focus{
+  border-color: #03a678;
+  box-shadow: 0 0 0 2px rgba(3, 166, 120, 0.2)
+}
+
+.ant-input:hover{
+  border-color: #03a678;  
+}
+
+.ant-upload.ant-upload-select-picture-card:hover{
+  border-color: #03a678;  
+}
 
 
 

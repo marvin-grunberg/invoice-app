@@ -59,7 +59,7 @@ DSB EURO: 00.11.234
 
     return(
       <div className="invoiceForm" id="invoice">
-        <div className="row ml-1">
+        <div className="row ml-1 mt-4">
           <div className="col">
           
           <ImageUpload />
@@ -173,7 +173,7 @@ DSB EURO: 00.11.234
         </div> {/* end information row */}      
         <div className="row mt-1 ml-1">
           <div className="col">
-            <p className="text-center align-middle pt-2 pb-2 pr-3" style={{color: 'white', backgroundColor: "#57606f"}}>Invoice gemaakt met Kudi - www.kudiapp.com</p>
+            <p className="text-center align-middle pt-2 pb-2 pr-3" style={{color: 'rgba(225,225,225,0.6)', backgroundColor: "#57606f", fontSize: '12px'}}>Invoice gemaakt met Kudi - www.kudiapp.com</p>
           </div>
         </div>
       </div>
