@@ -32,14 +32,12 @@ class App extends Component {
     })
   }
 
-  printDocument = async () => {    
-    const fbLike= <div className="fb-like" data-href="https://www.facebook.com/Kudi-460370791152066/?view_public_for=460370791152066" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+  printDocument = async () => {        
       await this.invoice.save();
       Modal.success({
         title: 'Succes!',      
-        content: (`${fbLike} Uw invoice wordt nu gedownload`)
-      });
-      // this.toggleModal()
+        content: (`Uw invoice wordt nu gedownload`)
+      });      
   }
 
   handleChange = (e) =>{
@@ -118,9 +116,7 @@ class App extends Component {
           />
         </Sider>
        </div>
-     </div>
-
-  
+     </div> 
       
     </Content>
    
