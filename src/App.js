@@ -3,8 +3,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 import moment from 'moment/min/moment-with-locales.min'
 import { PDFExport } from '@progress/kendo-react-pdf';
-import { Layout, Modal, Icon } from 'antd';
-import { FacebookProvider, Like } from 'react-facebook';
+import { Layout, Modal } from 'antd';
 import FormSettings from './components/FormSettings';
 import FormInvoice from './components/FormInvoice';
 
