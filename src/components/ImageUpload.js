@@ -1,64 +1,58 @@
-import React from 'react'
-import { Upload, Icon, message } from 'antd';
+import React, { Component } from 'react'
+import { Icon, Button, message } from 'antd';
 
-function getBase64(img, callback) {
-  const reader = new FileReader();
-  reader.addEventListener('load', () => callback(reader.result));
-  reader.readAsDataURL(img);
-}
-
-function beforeUpload(file) {
-  const isImage = file.type === 'image/jpg' || 'image/png';
-  if (!isImage) {
-    message.error('Selecteer een afbeelding!');
+class ImageUpload extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      logo: null
+    }
   }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error('Image must smaller than 2MB!');
-  }
-  return isImage && isLt2M;
-}
 
-class ImageUpload extends React.Component {
-  state = {
-    loading: false,
-  };
-
-  handleChange = (info) => {
-    if (info.file.status === 'uploading') {
-      this.setState({ loading: true });
+  handleChange=(e)=>{
+    const isjpg = e.target.files[0].type === 'image/jpeg' 
+    const ispng = e.target.files[0].type === 'image/png'
+    if(!isjpg && !ispng){
+      this.showError("Selecteer een afbeelding (jgp of png)")
       return;
     }
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, imageUrl => this.setState({
-        imageUrl,
-        loading: false,
-      }));
+    
+    const imageSize = e.target.files[0].size / 1024 / 1024 < 2;
+    if(!imageSize) {
+      this.showError("Afbeelding is te groot (max 2MB)")      
+      return
     }
+ 
+    if(e.target.files[0]){
+      const logo = URL.createObjectURL(e.target.files[0]);
+      this.setState({
+          logo,
+          imageName: e.target.files[0].name
+        })  
+      }
   }
 
-  render() {
-    const uploadButton = (
-      <div>
-        <Icon type={this.state.loading ? 'loading' : 'plus'} />
-        <div className="ant-upload-text">Logo Uploaden</div>
+  showError = (txt) => {
+    message.error(txt, 3);
+  };
+
+
+  render(){
+    const emptyArea = <div className="uploadArea alignMiddle"> <p className="logoText">Logo</p> </div>
+    const logo = <img src={this.state.logo} alt="" className="logoPlaceholder img-fluid" name='logo' /> 
+    const  uploadArea = this.state.logo == null ? emptyArea : logo
+    return(
+      <div className="row">        
+       
+        <div className="col-md-3">
+       
+        {uploadArea}
+        </div>
+        <div className="col-md-2">
+        <span className="btn btn-primary btn-sm uploadButton "><Icon type="edit" theme="filled" /> <input type="file" onChange={this.handleChange} value=""/></span>
+        </div>
       </div>
-    );
-    const imageUrl = this.state.imageUrl;
-    return (
-      <Upload
-        name="avatar"
-        listType="picture-card"
-        className="avatar-uploader"
-        showUploadList={false}
-        action="//jsonplaceholder.typicode.com/posts/"
-        beforeUpload={beforeUpload}
-        onChange={this.handleChange}
-      >
-        {imageUrl ? <img src={imageUrl} alt="avatar" style={{maxHeight: 80}}/> : uploadButton}
-      </Upload>
-    );
+    )
   }
 }
 
