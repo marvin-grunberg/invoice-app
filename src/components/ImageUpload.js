@@ -17,9 +17,9 @@ class ImageUpload extends Component{
       return;
     }
     
-    const imageSize = e.target.files[0].size / 1024 / 1024 < 2;
+    const imageSize = e.target.files[0].size / 1024 / 1024 < 1.5;
     if(!imageSize) {
-      this.showError("Afbeelding is te groot (max 2MB)")      
+      this.showError("Afbeelding is te groot (max 1.5MB)")      
       return
     }
  
