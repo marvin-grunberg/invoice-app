@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Icon, Button, message } from 'antd';
+import { Icon, message } from 'antd';
 
 class ImageUpload extends Component{
   constructor(props){

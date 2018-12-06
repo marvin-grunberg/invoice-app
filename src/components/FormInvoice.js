@@ -60,12 +60,11 @@ DSB EURO: 00.11.234
     return(
       <div className="invoiceForm" id="invoice">
         <div className="row ml-1 mt-4">
-          <div className="col">
-          
+          <div className="col">          
           <ImageUpload />
           </div>
         </div>  
-        <div className="row mt-3 ml-1"> {/* dates row */}       
+        <div className="row mt-5 ml-1"> {/* dates row */}       
 
           <div className="col-md-4" style={{paddingLeft: 0}}>
           <div>

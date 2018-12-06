@@ -115,7 +115,7 @@ html {
   width: 35px;
   border-radius: 50%;
   margin-left: 5px;
-  margin-top: 40px
+  margin-top: 49px
 }
 
 .uploadButton input[type=file] {
@@ -137,8 +137,8 @@ html {
 .uploadArea{
   border: dashed gray .5px;
   border-radius: 8px;
-  width: 180px;
-  height: 75px;
+  width: 195px;
+  height: 85px;
 }
 
 .logoText {
